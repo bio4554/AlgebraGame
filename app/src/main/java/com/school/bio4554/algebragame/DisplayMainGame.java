@@ -20,7 +20,16 @@ public class DisplayMainGame extends AppCompatActivity {
     Random rand = new Random();
     int choice = rand.nextInt(questions.length);
     int score = 0;
+    int qit = 0;
     String answer;
+
+
+
+
+
+
+
+    //  Initialize questions end
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +40,13 @@ public class DisplayMainGame extends AppCompatActivity {
         TextView scorebox = (TextView)findViewById(R.id.textView6);
         scorebox.setText("0");
     }
+
+    private void insertQuestion(String ques, String ans) {
+
+    }
+
+
+
 
     public void newQuestion(View view) {
         getRandChoice();
@@ -75,4 +91,6 @@ public class DisplayMainGame extends AppCompatActivity {
         } while(test == choice);
         choice = test;
     }
+
+
 }
