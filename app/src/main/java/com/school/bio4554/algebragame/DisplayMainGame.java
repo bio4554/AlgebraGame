@@ -14,8 +14,10 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class DisplayMainGame extends AppCompatActivity {
 
-    String[] questions = {"x+2 = 4", "x-5 = 7", "2x+8=25"};
-    String[] answers = {  "x=2",     "x=12",    "x=8.5"};
+    static int numq = 3;
+
+    String[] questions = new String[numq];
+    String[] answers = new String[numq];
 
     Random rand = new Random();
     int choice = rand.nextInt(questions.length);
@@ -23,8 +25,17 @@ public class DisplayMainGame extends AppCompatActivity {
     int qit = 0;
     String answer;
 
+    private void insertQuestion(String ques, String ans) {
+        questions[qit] = ques;
+        answers[qit] = ans;
+        qit++;
+    }
 
-
+    private void initializeQuestions() {
+        insertQuestion("x+2 = 4", "2");
+        insertQuestion("x-5 = 7", "12");
+        insertQuestion("2x+8=25", "8.5");
+    }
 
 
 
@@ -35,14 +46,11 @@ public class DisplayMainGame extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_main_game);
+        initializeQuestions();
         TextView questionbox = (TextView)findViewById(R.id.textView3);
         questionbox.setText(questions[choice]);
         TextView scorebox = (TextView)findViewById(R.id.textView6);
         scorebox.setText("0");
-    }
-
-    private void insertQuestion(String ques, String ans) {
-
     }
 
 
